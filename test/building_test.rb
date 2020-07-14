@@ -14,4 +14,8 @@ class BuildingTest < Minitest::Test
   def test_it_exists
     assert_instance_of Building, @building
   end
+
+  def test_units_starts_empty
+    assert_equal [], @building.units
+  end
 end
