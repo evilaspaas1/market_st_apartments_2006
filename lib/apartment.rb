@@ -1,0 +1,6 @@
+class Apartment
+
+  def initialize(argument)
+    @argument = argument
+  end
+end
