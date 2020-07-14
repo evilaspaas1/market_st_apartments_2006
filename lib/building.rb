@@ -33,4 +33,11 @@ class Building
       unit.renter
     end
   end
+
+  def renter_with_highest_rent
+    @units.max_by do |unit|
+      binding.pry
+      unit.monthly_rent
+    end
+  end
 end
