@@ -11,6 +11,8 @@ class BuildingTest < Minitest::Test
     @building = Building.new
     @unit1 = Apartment.new({number: "A1", monthly_rent: 1200, bathrooms: 1, bedrooms: 1})
     @unit2 = Apartment.new({number: "B2", monthly_rent: 999, bathrooms: 2, bedrooms: 2})
+    @unit3 = Apartment.new({number: "C3", monthly_rent: 1150, bathrooms: 2, bedrooms: 2})
+    @unit4 = Apartment.new({number: "D4", monthly_rent: 1500, bathrooms: 2, bedrooms: 3})
     @renter1 = Renter.new("Aurora")
     @renter2 = Renter.new("Tim")
   end
@@ -37,8 +39,8 @@ class BuildingTest < Minitest::Test
   def test_it_can_add_renters
     @building.add_unit(@unit1)
     @building.add_unit(@unit2)
-    @building.add_renter(@renter1)
-    @building.add_renter(@renter2)
+    @unit1.add_renter(@renter1)
+    @unit2.add_renter(@renter2)
     assert_equal ["Aurora", "Tim"], @building.renters
   end
 
@@ -46,5 +48,19 @@ class BuildingTest < Minitest::Test
     @building.add_unit(@unit1)
     @building.add_unit(@unit2)
     assert_equal 1099.5, @building.average_rent
+  end
+
+  def test_rented_units_starts_empty
+    skip
+    assert_equal [], @building.rented_units
+  end
+
+  def test_it_can_add_rented_units
+    skip
+    renter1 = Renter.new("Spencer")
+    @building.add_unit(@unit1)
+    @building.add_unit(@unit2)
+    @building.add_unit(@unit3)
+
   end
 end

@@ -1,6 +1,5 @@
 class Building
-  attr_reader :units,
-              :renters
+  attr_reader :units
 
   def initialize
     @units = []
@@ -11,8 +10,12 @@ class Building
     @units << unit
   end
 
-  def add_renter(renter)
-    @renters << renter.name
+  def renters
+    @renters = []
+    @units.each do |unit|
+      @renters << unit.renter.name
+    end
+    @renters
   end
 
   def average_rent
