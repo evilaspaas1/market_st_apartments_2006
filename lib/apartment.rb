@@ -12,4 +12,8 @@ class Apartment
     @bedrooms = apartment_params[:bedrooms]
     @renter = nil
   end
+
+  def add_renter(renter)
+    @renter = renter
+  end
 end
