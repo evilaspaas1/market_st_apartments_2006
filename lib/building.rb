@@ -1,6 +1,5 @@
 class Building
-  attr_reader :units,
-              :rented_units
+  attr_reader :units
 
   def initialize
     @units = []
@@ -26,5 +25,12 @@ class Building
       average_rent << unit.monthly_rent
     end
     (average_rent.sum).to_f / 2
+  end
+
+  def rented_units
+    @rented_units
+    @units.find_all do |unit|
+      unit.renter
+    end
   end
 end
