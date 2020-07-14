@@ -50,16 +50,13 @@ class BuildingTest < Minitest::Test
     assert_equal 1099.5, @building.average_rent
   end
 
-  def test_rented_units_starts_empty
-    assert_equal [], @building.rented_units
-  end
-
   def test_it_can_add_rented_units
-    skip
     renter1 = Renter.new("Spencer")
     @building.add_unit(@unit1)
     @building.add_unit(@unit2)
     @building.add_unit(@unit3)
-
+    assert_equal [], @building.rented_units
+    @unit2.add_renter(renter1)
+    assert_equal [@unit2], @building.rented_units
   end
 end
