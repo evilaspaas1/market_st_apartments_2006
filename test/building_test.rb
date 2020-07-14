@@ -51,7 +51,6 @@ class BuildingTest < Minitest::Test
   end
 
   def test_rented_units_starts_empty
-    skip
     assert_equal [], @building.rented_units
   end
 
